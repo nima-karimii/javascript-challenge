@@ -5,15 +5,41 @@
   <meta charset="utf-8">
   <title>UFO Finder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
   <link rel="stylesheet" href="static/css/style.css">
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#From_datepicker" ).datepicker();
+    $( "#To_datepicker" ).datepicker();
+    $( "#format" ).change(function() {
+      $( "#From_datepicker" ).datepicker( "option", "dateFormat", "mm dd yy" );
+      $( "#To_datepicker" ).datepicker( "option", "dateFormat", "mm dd yy" );
+
+    });
+  });
+  </script>
+
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+
+ 
+
+
+
+
 </head>
 
-<body>
-  <div class="wrapper">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+<body style="background-color: black;">
+  <div class="wrapper" >
+    <nav class="navbar navbar-default" style="background-color: black;">
+      <div class="container-fluid" >
         <div class="navbar-header">
           <a class="navbar-brand" href="index.html">UFO Sightings
             <img class="nav-ufo" src="static/images/ufo.svg">
@@ -26,30 +52,56 @@
       <p>The Truth is Out There</p>
     </div>
     <div class="container">
-      <div class="row margin-top-50">
-        <div class="col-md-2">
-          <aside class="filters">
-            <div class="panel panel-default">
-              <div class="panel-heading">Filter Search</div>
-              <div class="panel-body">
-                <form>
-                  <div class="form-group">
-                    <ul class="list-group" id="filters">
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
-                      </li>
-                    </ul>
+      <div class="row margin-top-20">
+        <div class="col-md-12">
+              <!-- <div class="panel-heading" style="color: azure;">Filter Search</div> -->
+              <div >
+                <form id="form">
+                  <div class="row" >
+
+                    <div class="col-md-4 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">From:</small>                      
+                    <input class="form-control" type="text" name="datepicker" id="From_datepicker" placeholder="1/1/2010" value="1/1/2010"/>
+                    </div>
+                    <div class="col-md-4 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">To:</small>                      
+                    <input class="form-control" type="text" name="datepicker" id="To_datepicker" placeholder="1/13/2010" value="1/13/2010"/>
+                    </div>
+
+                    <div class="col-md-4 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">City:</small>                      
+                    <select id="inputCity" class="form-control">
+                      <option selected>Choose...</option>
+                    </select>                    
+                    </div>
                   </div>
-                  <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                  <div class="row" >
+                    <div class="col-md-3 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">State:</small>                      
+                    <select id="inputState" class="form-control">
+                      <option selected>Choose...</option>
+                    </select>                    </div>
+                    <div class="col-md-3 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">Country:</small>                      
+                    <select id="inputCountry" class="form-control">
+                      <option selected>Choose...</option>
+                    </select>                    </div>                  
+                    <div class="col-md-3 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">Shape:</small>                      
+                    <select id="inputShape" class="form-control">
+                      <option selected>Choose...</option>
+                    </select>                    </div>
+
+                    <div class="col-md-2">
+                    <button id="filter-btn" type="button" class="btn btn-secondary" >Filter Table</button>
+                    </div>
+                  <div>
                 </form>
               </div>
-            </div>
-          </aside>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div id="table-area" class="">
-            <table id="ufo-table" class="table table-striped">
+            <table id="ufo-table" class="table table-hover table-dark">
               <thead>
                 <tr>
                   <th class="table-head">Date</th>
@@ -67,8 +119,8 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <span class="bottom">UFO Sightings</span>
+    <footer class="footer" style="background-color: black;">
+      <span class="bottom"style="background-color: black;" >UFO Sightings</span>
     </footer>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
