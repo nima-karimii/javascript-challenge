@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>UFO Finder</title>
+  <title>UFO Finder Level-3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
@@ -50,6 +50,7 @@
     <div class="hero text-center">
       <h1>UFO Sightings</h1>
       <p>The Truth is Out There</p>
+      <p>Level-3</p>
     </div>
     <div class="container">
       <div class="row margin-top-20">
@@ -69,7 +70,7 @@
                     </div>
                     <div class="col-md-4 form-group" >
                       <small id="dateHelp" class="form-text text-muted">Country:</small>                      
-                      <select id="inputCountry" class="form-control">
+                      <select onchange="updatingbyCountry()" id="inputCountry" class="form-control">
                         <option selected>ALL</option>
                       </select>                    </div>    
                     
@@ -77,27 +78,23 @@
                   <div class="row" >
                     <div class="col-md-3 form-group" >
                     <small id="dateHelp" class="form-text text-muted">State:</small>                      
-                    <select onchange="updating('inputState')" id="inputState" class="form-control">
+                    <select onchange="updatingbystate()" id="inputState" class="form-control">
                       <option >ALL</option>
                     </select>                    </div>
                     <div class="col-md-3 form-group" >
                       <small id="dateHelp" class="form-text text-muted">City:</small>                      
-                      <select onchange="updatingbyCity(1)" id="inputCity" class="form-control">
+                      <select onchange="updatingbyCity()" id="inputCity" class="form-control">
                         <option >ALL</option>
                       </select>                    
                       </div>
-                    <div class="col-md-3 form-group" >
-                    <small id="dateHelp" class="form-text text-muted">Country:</small>                      
-                    <select id="inputCountry" class="form-control">
-                      <option selected>ALL</option>
-                    </select>                    </div>                  
+            
                     <div class="col-md-3 form-group" >
                     <small id="dateHelp" class="form-text text-muted">Shape:</small>                      
                     <select id="inputShape" class="form-control">
                       <option selected>ALL</option>
                     </select>                    </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-2" style="padding-top: 20px;">
                     <button id="filter-btn" type="button" class="btn btn-secondary" >Filter Table</button>
                     </div>
                   <div>

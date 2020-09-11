@@ -3,7 +3,7 @@ var ALL_tableData = data;
 
 // YOUR CODE HERE!
 
-var default_dropbox="ALL";
+const default_dropboxx="ALL";
 
 function updateing_dropboxfilter(tableData,kind)
 {
@@ -22,15 +22,14 @@ var unique_shape = [... new Set(tableData.map(data => data.shape))];
 console.log(unique_shape);
 
 // Dropboxes Function
-function updating_dropbox(data,Select_ID,kind){
+function updating_dropbox(data,Select_ID)
+{
     var select_body= d3.select("#"+Select_ID);
     console.log(select_body);
     console.log(data);
-    if (kind===1) select_body.html(""); 
-    if (kind===0)
-    {   select_body.html(""); 
-        var row_all = select_body.append("option");
-    row_all.text("ALL");}
+    select_body.html(""); 
+    var row_all = select_body.append("option");
+    row_all.text("ALL");
 
  for ( var i=0 ; i<data.length ;i++ ) 
      {
@@ -42,11 +41,12 @@ function updating_dropbox(data,Select_ID,kind){
     };
 
 //Updating the dropboxes    
-updating_dropbox(unique_country,"inputCountry",kind);
-updating_dropbox(unique_city,"inputCity",kind);
-updating_dropbox(unique_state,"inputState",kind);
-updating_dropbox(unique_shape,"inputShape",kind);
+if (kind <1) updating_dropbox(unique_country,"inputCountry");
+if (kind <3) updating_dropbox(unique_city,"inputCity");
+if (kind <2)updating_dropbox(unique_state,"inputState");
+updating_dropbox(unique_shape,"inputShape");
 
+console.log(kind)
 }
 
 updateing_dropboxfilter(ALL_tableData,0);
@@ -55,8 +55,6 @@ updateing_dropboxfilter(ALL_tableData,0);
 
 function updating(which)
 {
-    x = document.getElementById(which).value;
-
     var from_day_Element = d3.select("#From_datepicker");
   
     // Get the value property of the input element
@@ -71,6 +69,15 @@ function updating(which)
     var Todate_inputValue = to_day_Element.property("value");
     Todate_inputValue=new Date(Todate_inputValue);
     console.log(Todate_inputValue);
+
+   
+    var Country_Element=d3.select("#inputCountry");
+    var Selected_Country=Country_Element.property("value");
+    console.log(Selected_Country);
+
+    
+
+    
     var City_Element=d3.select("#inputCity");
     var Selected_City=City_Element.property("value");
     console.log(Selected_City);
@@ -79,32 +86,43 @@ function updating(which)
     var Selected_State=State_Element.property("value");
     console.log(Selected_State);
     
-    var Country_Element=d3.select("#inputCountry");
-    var Selected_Country=Country_Element.property("value");
-    console.log(Selected_Country);
+    
     
     var Shape_Element=d3.select("#inputShape");
     var Selected_Shape=Shape_Element.property("value");
     console.log(Selected_Shape);
     
     updating_index=[];
-    if (Selected_City!=default_dropbox) updating_index.push("inputCity");
-    if (Selected_State!=default_dropbox) updating_index.push("inputState");
-    if (Selected_Country!=default_dropbox) updating_index.push("inputCountry");
-    if (Selected_Shape!=default_dropbox) updating_index.push("inputShape");
+    if (Selected_City!=default_dropboxx) updating_index.push("inputCity");
+    if (Selected_State!=default_dropboxx) updating_index.push("inputState");
+    if (Selected_Country!=default_dropboxx) updating_index.push("inputCountry");
+    if (Selected_Shape!=default_dropboxx) updating_index.push("inputShape");
 
       // Filtering the Data
+
         var filteredData = tableData.filter(report => new Date(report.datetime).getTime()>=(new Date(Fromdate_inputValue).getTime()));
         filteredData = filteredData.filter(report => new Date(report.datetime).getTime()<=(new Date(Todate_inputValue).getTime()));
-        if (Selected_City!=default_dropbox)  filteredData = filteredData.filter(report => report.city===Selected_City);
-        if (Selected_State!=default_dropbox)  filteredData = filteredData.filter(report => report.state===Selected_State);
-        if (Selected_Country!=default_dropbox)  filteredData = filteredData.filter(report => report.country===Selected_Country);
-        if (Selected_Shape!=default_dropbox)  filteredData = filteredData.filter(report => report.shape===Selected_Shape);
-    console.log(x);
-    updateing_dropboxfilter(filteredData,which)
+        if (which>0)  filteredData = filteredData.filter(report => report.country===Selected_Country);
+        if (which>1)  filteredData = filteredData.filter(report => report.state===Selected_State);
+        if (which>2)  filteredData = filteredData.filter(report => report.city===Selected_City);
+    console.log(which);
+
+    updateing_dropboxfilter(filteredData,which);
     
+
+
   
 }
 
-
-
+function updatingbyCountry()
+{ console.log("country");
+    updating(1)   ;
+}
+function updatingbystate()
+{console.log("state");
+    updating(2)  ; 
+}
+function updatingbyCity()
+{ console.log("city");
+    updating(3)   ;
+}

@@ -27,10 +27,24 @@
   <div >
     <nav class="navbar navbar-default" style="background-color: black;">
       <div class="container-fluid" >
-        <div class="navbar-header">
+        <div class="row col-md-12">
+        <div class="navbar-header col-md-6">
           <a class="navbar-brand" href="index.html">UFO Sightings
             <img class="nav-ufo" src="UFO-level-1/static/images/ufo.svg">
           </a>
+
+        <!-- </div  >
+            <div  >
+                <button id="level1" type="button" class="btn btn-secondary" onclick="location.href='UFO-level-1/index.html'" style="padding: 4px 4px" >Level 1</button>
+            </div>
+            <div >
+              <button id="level2" type="button" class="btn btn-secondary" onclick="location.href='UFO-level-2/index.html'" style="padding: 4px 4px" >Level 2</button>
+            </div>    
+            <div >
+              <button id="level3" type="button" class="btn btn-secondary" onclick="location.href='UFO-level-3/index.html'" style="padding: 4px 4px" >Level 3</button>
+            </div>
+         -->
+        
         </div>
       </div>
     </nav>
@@ -46,7 +60,8 @@
     </div>
     <div class="container col-md-4">
       <button id="level2" type="button" class="btn btn-secondary" onclick="location.href='UFO-level-2/index.html'" style="padding: 15px 40%" >Level 2</button>
-    </div>    <div class="container col-md-4">
+    </div>    
+    <div class="container col-md-4">
       <button id="level3" type="button" class="btn btn-secondary" onclick="location.href='UFO-level-3/index.html'" style="padding: 15px 40%" >Level 3</button>
     </div>
 
