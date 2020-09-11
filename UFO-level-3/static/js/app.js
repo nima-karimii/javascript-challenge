@@ -5,37 +5,6 @@ var tableData = data;
 
 var default_dropbox="ALL"
 
-// Geting the unique value of each coulumn
-var unique_state = [... new Set(tableData.map(data => data.state))];
-console.log(unique_state);
-
-var unique_city = [... new Set(tableData.map(data => data.city))];
-console.log(unique_city);
-
-var unique_country = [... new Set(tableData.map(data => data.country))];
-console.log(unique_country);
-
-var unique_shape = [... new Set(tableData.map(data => data.shape))];
-console.log(unique_shape);
-
-// Dropboxes Function
-function updating_dropbox(data,Select_ID){
-    var select_body= d3.select("#"+Select_ID);
-    console.log(select_body);
-    console.log(data);
-
- for ( var i=0 ; i<data.length ;i++ ) 
-     {
-        var row = select_body.append("option");
-        row.text(data[i]);
-         }
-    };
-
-//Updating the dropboxes    
-updating_dropbox(unique_country,"inputCountry");
-updating_dropbox(unique_city,"inputCity");
-updating_dropbox(unique_state,"inputState");
-updating_dropbox(unique_shape,"inputShape");
 
 // Get a reference to the table body
 var tbody = d3.select("tbody");
@@ -110,10 +79,23 @@ console.log(Selected_Shape);
     if (filteredData.length===0) {
         var row = tbody.append("tr");
         var cell = row.append("tr");
+        cell.text("No Data! Did you select the right day??");
+    
         cell.text("No Data found! Please check your filters and try again!");
 
-
+        var Img_url="https://static.dribbble.com/users/1489103/screenshots/6326497/no-data-found.png";
         
+        var elem = document.createElement("img");
+        elem.setAttribute("src", "https://static.dribbble.com/users/1489103/screenshots/6326497/no-data-found.png");
+        
+        var DIV=cell.append('div');
+        
+        console.log(elem);
+        DIV.appendChild(elem);
+        
+
+    
+    
     }
     else {
 

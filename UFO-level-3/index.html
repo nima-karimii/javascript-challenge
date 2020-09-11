@@ -67,35 +67,38 @@
                     <small id="dateHelp" class="form-text text-muted">To:</small>                      
                     <input class="form-control" type="text" name="datepicker" id="To_datepicker" placeholder="1/13/2010" value="1/13/2010"/>
                     </div>
-
-                    <div class="col-md-3 form-group" >
+                    <div class="col-md-4 form-group" >
                       <small id="dateHelp" class="form-text text-muted">Country:</small>                      
                       <select id="inputCountry" class="form-control">
                         <option selected>ALL</option>
-                      </select>                    </div> 
-
+                      </select>                    </div>    
+                    
                   </div>
                   <div class="row" >
                     <div class="col-md-3 form-group" >
                     <small id="dateHelp" class="form-text text-muted">State:</small>                      
-                    <select id="inputState" class="form-control">
-                      <option selected>ALL</option>
+                    <select onchange="updating('inputState')" id="inputState" class="form-control">
+                      <option >ALL</option>
                     </select>                    </div>
                     <div class="col-md-3 form-group" >
                       <small id="dateHelp" class="form-text text-muted">City:</small>                      
-                      <select id="inputCity" class="form-control">
-                        <option selected>ALL</option>
+                      <select onchange="updatingbyCity(1)" id="inputCity" class="form-control">
+                        <option >ALL</option>
                       </select>                    
                       </div>
-                 
+                    <div class="col-md-3 form-group" >
+                    <small id="dateHelp" class="form-text text-muted">Country:</small>                      
+                    <select id="inputCountry" class="form-control">
+                      <option selected>ALL</option>
+                    </select>                    </div>                  
                     <div class="col-md-3 form-group" >
                     <small id="dateHelp" class="form-text text-muted">Shape:</small>                      
                     <select id="inputShape" class="form-control">
                       <option selected>ALL</option>
                     </select>                    </div>
 
-                    <div class="col-md-2"style="padding-top: 20px;">
-                    <button id="filter-btn" type="button" class="btn btn-secondary"  >Filter Table</button>
+                    <div class="col-md-2">
+                    <button id="filter-btn" type="button" class="btn btn-secondary" >Filter Table</button>
                     </div>
                   <div>
                 </form>
@@ -128,6 +131,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script src="static/js/data.js"></script>
   <script src="static/js/app.js"></script>
+  <script src="static/js/filter.js"></script>
+
 </body>
 
 </html>
