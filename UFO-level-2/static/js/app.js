@@ -57,7 +57,7 @@ function runEnter() {
 // Select the input element and get the raw HTML node
 var from_day_Element = d3.select("#From_datepicker");
   
-// Get the value property of the input element
+// Get the value property of the input element of "From date"
 var Fromdate_inputValue = from_day_Element.property("value");
 Fromdate_inputValue=new Date(Fromdate_inputValue)
 console.log(Fromdate_inputValue)
@@ -65,23 +65,27 @@ console.log(Fromdate_inputValue)
 // Select the input element and get the raw HTML node
 var to_day_Element = d3.select("#To_datepicker");
 
-// Get the value property of the input element
+// Get the value property of the input element of "To date"
 var Todate_inputValue = to_day_Element.property("value");
 Todate_inputValue=new Date(Todate_inputValue);
 console.log(Todate_inputValue);
 
+// Get the value property of the input element of "City"
 var City_Element=d3.select("#inputCity");
 var Selected_City=City_Element.property("value");
 console.log(Selected_City);
 
+// Get the value property of the input element of "State"
 var State_Element=d3.select("#inputState");
 var Selected_State=State_Element.property("value");
 console.log(Selected_State);
 
+// Get the value property of the input element of "Country"
 var Country_Element=d3.select("#inputCountry");
 var Selected_Country=Country_Element.property("value");
 console.log(Selected_Country);
 
+// Get the value property of the input element of "Shape"
 var Shape_Element=d3.select("#inputShape");
 var Selected_Shape=Shape_Element.property("value");
 console.log(Selected_Shape);
@@ -98,15 +102,11 @@ console.log(Selected_Shape);
     if (Selected_Country!=default_dropbox)  filteredData = filteredData.filter(report => report.country===Selected_Country);
     if (Selected_Shape!=default_dropbox)  filteredData = filteredData.filter(report => report.shape===Selected_Shape);
 
-
-    
-    
-    
-    console.log(filteredData);
+    // console.log(filteredData);
     tbody.html("");
     
-
-
+    // Checking any Data found
+    // If No
     if (filteredData.length===0) {
         var row = tbody.append("tr");
         var cell = row.append("tr");
@@ -116,11 +116,11 @@ console.log(Selected_Shape);
         
     }
     else {
-
+    // If Yes : put them on the table
     filteredData.forEach(function(report) {
         var row = tbody.append("tr");
         Object.entries(report).forEach(function([key, value]) {
-        // console.log(key, value);
+    
     // Append a cell to the row for each value
     // in the weather report object
         var cell = row.append("td");
