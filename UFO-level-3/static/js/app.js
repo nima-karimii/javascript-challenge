@@ -77,7 +77,7 @@ console.log(Selected_Shape);
     //If no:
     if (filteredData.length===0) {
         var row = tbody.append("tr");
-        var cell = row.append("tr");
+        var cell = row.append("td");
         cell.text("No Data! Did you select the right day??");
     
         cell.text("No Data found! Please check your filters and try again!");
@@ -87,10 +87,10 @@ console.log(Selected_Shape);
         var elem = document.createElement("img");
         elem.setAttribute("src", "https://static.dribbble.com/users/1489103/screenshots/6326497/no-data-found.png");
         
-        var DIV=cell.append('div');
+        //var DIV=cell.append('div');
         
         console.log(elem);
-        DIV.appendChild(elem);
+        cell.append(elem);
         
 
     

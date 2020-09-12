@@ -53,7 +53,7 @@ updateing_dropboxfilter(ALL_tableData,0);
 
 
 
-function updating(which)
+function Selecting_Data(which)
 {
     var from_day_Element = d3.select("#From_datepicker");
   
@@ -102,27 +102,32 @@ function updating(which)
 
         var filteredData = tableData.filter(report => new Date(report.datetime).getTime()>=(new Date(Fromdate_inputValue).getTime()));
         filteredData = filteredData.filter(report => new Date(report.datetime).getTime()<=(new Date(Todate_inputValue).getTime()));
-        if (which>0)  filteredData = filteredData.filter(report => report.country===Selected_Country);
-        if (which>1)  filteredData = filteredData.filter(report => report.state===Selected_State);
-        if (which>2)  filteredData = filteredData.filter(report => report.city===Selected_City);
+        if (which>0 & Selected_Country!=default_dropboxx)  filteredData = filteredData.filter(report => report.country===Selected_Country);
+        if (which>1 & Selected_State!=default_dropboxx)  filteredData = filteredData.filter(report => report.state===Selected_State);
+        if (which>2 & Selected_City!=default_dropboxx)  filteredData = filteredData.filter(report => report.city===Selected_City);
     console.log(which);
 
-    updateing_dropboxfilter(filteredData,which);
     
-
+return filteredData;
 
   
 }
 
 function updatingbyCountry()
 { console.log("country");
-    updating(1)   ;
+filteredData=Selecting_Data(1)   ;
+    updateing_dropboxfilter(filteredData,1);
+
 }
 function updatingbystate()
 {console.log("state");
-    updating(2)  ; 
+filteredData=Selecting_Data(2)  ; 
+    updateing_dropboxfilter(filteredData,2);
+
 }
 function updatingbyCity()
 { console.log("city");
-    updating(3)   ;
+filteredData=Selecting_Data(3)   ;
+    updateing_dropboxfilter(filteredData,3);
+
 }
