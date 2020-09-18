@@ -12,21 +12,24 @@ That's why I am here. I am writing code that will create a table dynamically bas
 
 The planet Earth needs to know what we have found!
 
-![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/Home.PNG)
+![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/home.PNG)
 
 ## My Task
 
 ### Level 1: Automatic Table and Date Search 
+![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/UFO-level-1/static/images/Home.PNG)
 
 * I created a basic HTML web page [index.html](UFO-level-1/index.html) 
 
 * I used the UFO dataset provided in the form of an array of JavaScript objects, wrote code that appends a table to web page and then adds new rows of data for each UFO sighting.
 
-*I used a date form in HTML document and wrote JavaScript code that listens for events and search through the `date/time` column to find rows that match user input.
+* I used a date form in HTML document and wrote JavaScript code that listens for events and search through the `date/time` column to find rows that match user input.
+
+![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/UFO-level-1/static/images/Report.PNG)
 
 
 ### Level 2: Multiple Search Categories 
-
+![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/UFO-level-2/static/images/home.PNG)
 
 * I used multiple `input` tags and/or select dropdowns, wrote JavaScript code so the user can to set multiple filters and search for UFO sightings using the following criteria based on the table columns:
 
@@ -36,7 +39,11 @@ The planet Earth needs to know what we have found!
   4. `country`
   5. `shape`
 
+  ![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/UFO-level-2/static/images/report.PNG)
+
+
 ### Level 3: Multiple Search Categories with relevant dropbox option
+![Home page](https://raw.githubusercontent.com/nima-karimii/javascript-challenge/master/UFO-level-3/static/images/home.PNG)
 
 * After finishing Level 2, there was a problem for user to select the right filters to get the results so I made level 3 challenge. 
 * In this challenge after selecting the dates when user pick up a country name, just relevant options come up in other filter so for State and City.
