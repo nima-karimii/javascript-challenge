@@ -12,7 +12,7 @@ That's why I am here. I am writing code that will create a table dynamically bas
 
 The planet Earth needs to know what we have found!
 
-![Home page](./home.png)
+![Home page](https://github.com/nima-karimii/javascript-challenge/blob/master/Home.PNG)
 
 ## My Task
 
