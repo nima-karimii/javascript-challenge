@@ -12,6 +12,8 @@ That's why I am here. I am writing code that will create a table dynamically bas
 
 The planet Earth needs to know what we have found!
 
+![Home page](./home.png)
+
 ## My Task
 
 ### Level 1: Automatic Table and Date Search 
